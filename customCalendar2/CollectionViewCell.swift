@@ -25,6 +25,9 @@ class CollectionViewCell: UICollectionViewCell {
     var swiped = false
     var date:String?
     
+    var widthForErase: CGFloat = 15.0
+    var widthForBrush: CGFloat = 3.0
+    
     let colors: [(CGFloat, CGFloat, CGFloat)] = [
         (1.0, 0, 0),
         (0, 1.0, 0),
@@ -99,6 +102,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         
     }
+    //MARK: Actions
     
     @IBAction func editPressed(_ sender: UIButton) {
         if(tempImageView.isUserInteractionEnabled == true){
@@ -108,5 +112,28 @@ class CollectionViewCell: UICollectionViewCell {
             tempImageView.isUserInteractionEnabled = true
         }
     }
+    
+    @IBAction func reset(_ sender: UIButton) {
+        mainImageView.image = UIImage(named: "background")
+    }
+    
+    @IBAction func pencilPressed(_ sender: UIButton) {
+        var index = sender.tag
+        if index < 0 || index >= colors.count {
+            index = 0
+        }
+        
+        (red, green, blue) = colors[index]
+        
+        if index == colors.count - 1 {
+            opacity = 1.0
+            brushWidth = widthForErase
+        }
+        else {
+            brushWidth = widthForBrush
+        }
+    }
+    
+    
     
 }

@@ -9,5 +9,6 @@
 import UIKit
 
 class CollectionReusableView: UICollectionReusableView {
-    @IBOutlet weak var headerLabel: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    
 }

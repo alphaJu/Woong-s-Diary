@@ -141,6 +141,9 @@ class CollectionViewController: UICollectionViewController {
         }
         
     }
+    @IBAction func closeDetail(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     // MARK: UICollectionViewDelegate
     
     /*
