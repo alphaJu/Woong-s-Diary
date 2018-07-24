@@ -46,11 +46,11 @@ class PopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //데이터베이스 미는용도
-        //        let realm = try! Realm()
-        //        try! realm.write {
-        //            realm.deleteAll()
-        //        }
+//        데이터베이스 미는용도
+//                let realm = try! Realm()
+//                try! realm.write {
+//                    realm.deleteAll()
+//                }
         
         
         //mainImageView.image = UIImage(named: "icon1")
@@ -308,10 +308,6 @@ class PopUpViewController: UIViewController {
         return nil
     }
     
-    func convertToBase64(image: UIImage) -> String {
-        return UIImagePNGRepresentation(image)!
-            .base64EncodedString()
-    }
     
 }
 

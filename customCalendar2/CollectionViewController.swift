@@ -50,6 +50,8 @@ class CollectionViewController: UICollectionViewController {
         if let layout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,13 +94,16 @@ class CollectionViewController: UICollectionViewController {
         
         if(Test < 7){
             
-            let image = UIImage(named: carImages[indexPath.row])
+            let image = UIImage(named: "icon1")
+            let image2 = UIImage(named: "detailbackground")
             cell.imageView.image = image
+            cell.mainImageView.image = image2
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])
             let day = realm.objects(cellinfo.self).filter(predicate).first
             if(day?.filepath != nil){
                 cell.imageView.image = load(fileName: (day!.filepath))
+                cell.mainImageView.image = load(fileName: (day!.detail))
                 print("testpoint: \(Test)")
                 
             }
@@ -127,10 +132,18 @@ class CollectionViewController: UICollectionViewController {
         return nil
     }
     
-    func convertToBase64(image: UIImage) -> String {
-        return UIImagePNGRepresentation(image)!
-            .base64EncodedString()
+    private func save(image: UIImage) -> String? {
+        let fileName = date!
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        
+        print("Error saving image")
+        return nil
     }
+    
     
     @IBAction func editPressed(_ sender: UIButton) {
         if(self.collectionView?.isScrollEnabled == true){
