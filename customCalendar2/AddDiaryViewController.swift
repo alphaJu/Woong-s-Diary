@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AddDiaryViewController: UIViewController {
+private let reuseIdentifier = "photoCell"
+
+class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var date: String? //cell에서 얻어와야 함.
     
@@ -20,6 +22,10 @@ class AddDiaryViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    
+    var carImages = [String]()
+
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var lastPoint = CGPoint.zero // CGPoint.zeroPoint
     var red: CGFloat = 0.0
@@ -62,6 +68,10 @@ class AddDiaryViewController: UIViewController {
         
         mainImageView.image = UIImage(named: "icon2")
         // Do any additional setup after loading the view.
+        
+        carImages = ["image1.jpg", "image1.jpg", "image1.jpg", "image1.jpg", "image1.jpg", "image3.jpg", "image1.jpg", "image2.jpg", "image3.jpg","image1.jpg", "image2.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg"]
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,16 +161,6 @@ class AddDiaryViewController: UIViewController {
         tempImageView.image = nil
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let settingsViewController = segue.destination as! SettingsViewController
-        settingsViewController.delegate = self as! SettingsViewControllerDelegate
-        settingsViewController.brush = brushWidth
-        settingsViewController.opacity = opacity
-        
-        settingsViewController.red = red
-        settingsViewController.green = green
-        settingsViewController.blue = blue
-    }*/
     
     //MARK: Actions
     
@@ -197,6 +197,35 @@ class AddDiaryViewController: UIViewController {
         settingsViewController.green = green
         settingsViewController.blue = blue
     }
+    
+    
+    //MARK:
+    
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
+     // #warning Incomplete implementation, return the number of sections
+     return 1
+     }
+     
+     
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     // #warning Incomplete implementation, return the number of items
+     return carImages.count
+     }
+     
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DiaryPhotoCell
+     
+     // Configure the cell
+     let image = UIImage(named: carImages[indexPath.row])
+        print(carImages[indexPath.row])
+        print(image)
+     cell.imageView.image = image
+     
+     return cell
+     }
+     
+    
+    
     
 
     /*
