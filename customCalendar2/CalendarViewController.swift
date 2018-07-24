@@ -36,7 +36,13 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     override func loadView() {
         print("calendar - loadview")
-        
+
+        //        데이터베이스 미는용도
+//                        let realm = try! Realm()
+//                        try! realm.write {
+//                            realm.deleteAll()
+//                        }
+
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.groupTableViewBackground
         self.view = view
