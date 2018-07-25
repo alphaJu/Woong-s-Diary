@@ -18,6 +18,7 @@
 		035495D12104D3CD002A82DD /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035495D02104D3CD002A82DD /* CanvasView.swift */; };
 		03FACFA221075594002ADC9D /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACFA121075594002ADC9D /* AddDiaryViewController.swift */; };
 		03FACFA621079E6F002ADC9D /* DiaryPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACFA521079E6F002ADC9D /* DiaryPhotoCell.swift */; };
+		03FACFA821084320002ADC9D /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FACFA721084320002ADC9D /* PhotoDetailViewController.swift */; };
 		170BFFAD2106EB570054633E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFFAC2106EB570054633E /* CollectionViewController.swift */; };
 		170BFFAF2106ED080054633E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFFAE2106ED080054633E /* CollectionViewCell.swift */; };
 		1772241B21058875000E6676 /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177223FB21058875000E6676 /* FSCalendarCollectionView.m */; };
@@ -57,6 +58,7 @@
 		035495D02104D3CD002A82DD /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		03FACFA121075594002ADC9D /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		03FACFA521079E6F002ADC9D /* DiaryPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPhotoCell.swift; sourceTree = "<group>"; };
+		03FACFA721084320002ADC9D /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		170BFFAC2106EB570054633E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		170BFFAE2106ED080054633E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		177223FB21058875000E6676 /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionView.m; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				03FACFA121075594002ADC9D /* AddDiaryViewController.swift */,
 				17C8221F210781C8003F4230 /* CollectionReusableView.swift */,
 				03FACFA521079E6F002ADC9D /* DiaryPhotoCell.swift */,
+				03FACFA721084320002ADC9D /* PhotoDetailViewController.swift */,
 			);
 			path = customCalendar2;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				1772241E21058875000E6676 /* FSCalendarCell.m in Sources */,
 				035495CB2104D373002A82DD /* CalendarViewController.swift in Sources */,
 				1772242C21058CDF000E6676 /* SettingsViewController.swift in Sources */,
+				03FACFA821084320002ADC9D /* PhotoDetailViewController.swift in Sources */,
 				1772242721058875000E6676 /* FSCalendarCalculator.m in Sources */,
 				03FACFA221075594002ADC9D /* AddDiaryViewController.swift in Sources */,
 				1772242221058875000E6676 /* FSCalendarScopeHandle.m in Sources */,
