@@ -30,6 +30,7 @@ class CollectionViewCell: UICollectionViewCell {
     var swiped = false
     var date:String?
     
+    
     var widthForErase: CGFloat = 15.0
     var widthForBrush: CGFloat = 3.0
     
@@ -41,6 +42,7 @@ class CollectionViewCell: UICollectionViewCell {
         (1.0, 1.0, 1.0)
     ]
     
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
@@ -110,6 +112,8 @@ class CollectionViewCell: UICollectionViewCell {
     //MARK: Actions
     
     @IBAction func editPressed(_ sender: UIButton) {
+        print(tempImageView.isUserInteractionEnabled)
+        print(mainImageView.isUserInteractionEnabled)
         if(tempImageView.isUserInteractionEnabled == true){
             tempImageView.isUserInteractionEnabled = false
         }

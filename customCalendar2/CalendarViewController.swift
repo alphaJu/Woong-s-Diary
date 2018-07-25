@@ -115,8 +115,9 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         
         if let indexPath = (self.calendar.collectionView.indexPathForItem(at: p)){
             let cell = self.calendar.collectionView.cellForItem(at: indexPath) as! FSCalendarCell
-        
+ 
             date = self.formatter2.string(from: self.calendar.date(for: cell)!)
+            print("this point is for test : \(date)")
             
             let oneday = 86400.0
             var nextday = self.formatter2.string(from: (self.calendar.date(for: cell)?.addingTimeInterval(oneday))!)
@@ -138,10 +139,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             return
         }
         
-        print("date : \(date)")
+        print("days : \(days)")
         let collectionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbWeekBoard") as! CollectionViewController
         collectionVC.days = days
-        
+        days = []
         //        popOverVC.canvas = self.calendar.cell(for: date, at: monthPosition)?.imageView.image
         //popOverVC.canvas = self.calendar(self.calendar, cellFor: date, at
         
@@ -190,7 +191,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     //날짜에 맞는 이미지 넣는 것 같음
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        print("calendar - imagefor")
+//        print("calendar - imagefor")
         let realm = try! Realm()
         let test: String?
         test = self.formatter2.string(from: date)
@@ -198,7 +199,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         img = UIImage(named: "icon1")!
         let predicate = NSPredicate(format: "date = %@",test!)
         let day = realm.objects(cellinfo.self).filter(predicate).first
-        print(test)
+//        print(test)
         if(day?.filepath != nil){
             if(day?.filepath != ""){
                 img = loads(fileName: (day!.filepath))!
@@ -252,7 +253,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     //subtitle 설정(공휴일)
     func calendar(_ calendar:FSCalendar, subtitleFor date: Date)-> String?{
-        print("calendar - subtitlefor")
+//        print("calendar - subtitlefor")
         return "공휴일"
     }
     
@@ -278,6 +279,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("did select date \(self.formatter.string(from: date))")
         print(self.formatter2.string(from: date))
+        today = (self.formatter2.string(from: date))
         let thisday = cellinfo()
         thisday.date = self.formatter2.string(from: date)
         //self.configureVisibleCells()
@@ -313,7 +315,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         //self.configureVisibleCells()
     }
     
-    
+
     
     
     

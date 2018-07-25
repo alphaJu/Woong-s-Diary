@@ -52,8 +52,8 @@ class CalendarCell: FSCalendarCell {
          
          self.shapeLayer.isHidden = true
          */
-        print("cell init")
-        print("size : \(self.bounds)")
+//        print("cell init")
+//        print("size : \(self.bounds)")
         
         let view = UIView(frame: self.bounds)
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.12)
