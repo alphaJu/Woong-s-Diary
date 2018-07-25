@@ -41,6 +41,7 @@
 		17C82220210781C8003F4230 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C8221F210781C8003F4230 /* CollectionReusableView.swift */; };
 		508A35E3E1156A2EA0AFDFC5 /* Pods_customCalendar2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516017C4019680CE278877CB /* Pods_customCalendar2.framework */; };
 		B8E0796B2105E0C600F48A1E /* cellinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0796A2105E0C600F48A1E /* cellinfo.swift */; };
+		B8E0796E210872C100F48A1E /* memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0796D210872C100F48A1E /* memo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		62286ACAB2E599D0F61F4297 /* Pods-customCalendar2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customCalendar2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-customCalendar2/Pods-customCalendar2.debug.xcconfig"; sourceTree = "<group>"; };
 		8B74C512CB49EF81A56ABA4D /* Pods-customCalendar2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customCalendar2.release.xcconfig"; path = "Pods/Target Support Files/Pods-customCalendar2/Pods-customCalendar2.release.xcconfig"; sourceTree = "<group>"; };
 		B8E0796A2105E0C600F48A1E /* cellinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellinfo.swift; sourceTree = "<group>"; };
+		B8E0796D210872C100F48A1E /* memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				035495CA2104D373002A82DD /* CalendarViewController.swift */,
 				035495CC2104D3B4002A82DD /* CalendarCell.swift */,
 				B8E0796A2105E0C600F48A1E /* cellinfo.swift */,
+				B8E0796D210872C100F48A1E /* memo.swift */,
 				035495CE2104D3C2002A82DD /* PopUpViewController.swift */,
 				035495D02104D3CD002A82DD /* CanvasView.swift */,
 				170BFFAC2106EB570054633E /* CollectionViewController.swift */,
@@ -335,6 +338,7 @@
 				1772241D21058875000E6676 /* FSCalendarDelegationFactory.m in Sources */,
 				1772242021058875000E6676 /* FSCalendar.m in Sources */,
 				1772241B21058875000E6676 /* FSCalendarCollectionView.m in Sources */,
+				B8E0796E210872C100F48A1E /* memo.swift in Sources */,
 				1772242421058875000E6676 /* FSCalendarExtensions.m in Sources */,
 				1772242A21058875000E6676 /* FSCalendarAppearance.m in Sources */,
 				1772242121058875000E6676 /* FSCalendarCollectionViewLayout.m in Sources */,

@@ -7,24 +7,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "photoCell"
 
 class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    //save to db
     var date: String? //cell에서 얻어와야 함.
-    
     @IBOutlet weak var date_written: UITextField!
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var contentText: UITextView!
+    var carUIImages = [UIImage]()
+    //
+    
     
     @IBOutlet weak var segButton: UISegmentedControl!
-    
-    @IBOutlet weak var textView: UITextView!
-    
-    @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+
     
     var carImages = [String]()
-    var carUIImages = [UIImage]()
 
     struct Storyboard {
         static let photoCell = "photoCell"
@@ -63,16 +66,18 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         //date_written.text = Time
         
+        print("hi \(date)")
+        
         let date_now_string = NSDate().description
         let index = date_now_string.index(date_now_string.startIndex, offsetBy: 16)
         date_written.text = String(date_now_string[..<index])
         
         self.view.backgroundColor = UIColor.darkGray
         
-        self.textView.backgroundColor = UIColor.black.withAlphaComponent(0)
+        self.contentText.backgroundColor = UIColor.black.withAlphaComponent(0)
         
         segButton.selectedSegmentIndex = 0
-        textView.isUserInteractionEnabled = true
+        contentText.isUserInteractionEnabled = true
         mainImageView.isUserInteractionEnabled = false
         tempImageView.isUserInteractionEnabled = false
         
@@ -105,16 +110,23 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func save(_ sender: UIButton) {
-        self.dismiss(animated: true)
         //db등록
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "date = %@",date!)
+        let day = realm.objects(cellinfo.self).filter(predicate).first
+        
+   
+    
+        self.dismiss(animated: true)
+    
     }
     @IBAction func indexChanged(_ sender: Any) {
         if segButton.selectedSegmentIndex == 0 {
-            textView.isUserInteractionEnabled = true
+            contentText.isUserInteractionEnabled = true
             mainImageView.isUserInteractionEnabled = false
             tempImageView.isUserInteractionEnabled = false
         }else{
-            textView.isUserInteractionEnabled = false
+            contentText.isUserInteractionEnabled = false
             mainImageView.isUserInteractionEnabled = true
             tempImageView.isUserInteractionEnabled = true
         }
