@@ -143,6 +143,7 @@ class CollectionViewController: UICollectionViewController {
         self.present(popOverVC, animated: true)
     }
     
+    
     @objc func tappedMe()
     {
         print("Tapped on Image")
@@ -205,6 +206,7 @@ class CollectionViewController: UICollectionViewController {
         
         //        cell.today.text = (String)((Int)(date!)! + Test)
         
+        cell.delegate = self
         
         return cell
     }
@@ -286,5 +288,19 @@ class CollectionViewController: UICollectionViewController {
      }
      */
     
+}
+
+//make extension
+extension CollectionViewController: CollectionViewDelegate{
+    func pushDate(cell: CollectionViewCell) {
+        let date = cell.date
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addDiaryVC = storyboard.instantiateViewController(withIdentifier: "addDiaryVC") as! AddDiaryViewController
+        
+        addDiaryVC.date = date
+        self.present(addDiaryVC, animated: true)
+        
+    }
 }
 
