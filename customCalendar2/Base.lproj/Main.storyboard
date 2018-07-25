@@ -560,11 +560,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5Q-Iy-K7x">
-                                <rect key="frame" x="20" y="154" width="642" height="660"/>
+                                <rect key="frame" x="20" y="201" width="642" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Wt-zK-ILM">
-                                <rect key="frame" x="20" y="154" width="642" height="660"/>
+                                <rect key="frame" x="20" y="201" width="642" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -572,11 +572,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DaH-bH-9sI">
-                                <rect key="frame" x="20" y="154" width="642" height="660"/>
+                                <rect key="frame" x="20" y="201" width="642" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mn9-VI-jbj">
-                                <rect key="frame" x="632" y="61" width="30" height="30"/>
+                                <rect key="frame" x="404" y="163" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="reset"/>
                                 <connections>
@@ -584,7 +584,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBE-w7-IA5">
-                                <rect key="frame" x="784" y="62" width="30" height="29"/>
+                                <rect key="frame" x="556" y="164" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="black_circle"/>
                                 <connections>
@@ -592,7 +592,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zo-N6-PA1">
-                                <rect key="frame" x="670" y="61" width="30" height="30"/>
+                                <rect key="frame" x="442" y="163" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="red_circle"/>
                                 <connections>
@@ -600,7 +600,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIR-qO-Dzq">
-                                <rect key="frame" x="746" y="62" width="30" height="29"/>
+                                <rect key="frame" x="518" y="164" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="blue_circle"/>
                                 <connections>
@@ -608,7 +608,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPy-Uf-WrJ">
-                                <rect key="frame" x="708" y="61" width="30" height="30"/>
+                                <rect key="frame" x="480" y="163" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="green_circle"/>
                                 <connections>
@@ -616,7 +616,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kak-xa-YNl">
-                                <rect key="frame" x="822" y="61" width="30" height="29"/>
+                                <rect key="frame" x="594" y="163" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="eraser"/>
                                 <connections>
@@ -624,7 +624,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuS-GE-JGP">
-                                <rect key="frame" x="860" y="61" width="30" height="29"/>
+                                <rect key="frame" x="632" y="163" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="R" image="setting"/>
                                 <connections>
@@ -634,47 +634,78 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j8U-bi-6mh">
-                                <rect key="frame" x="679" y="154" width="413" height="660"/>
+                                <rect key="frame" x="679" y="201" width="413" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92414951324462891" green="0.63041704893112183" blue="0.21113935112953186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xI9-vQ-y3b">
-                                    <size key="itemSize" width="194" height="181"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="MjI-dM-C1O">
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="gRA-lF-NYA" customClass="DiaryPhotoCell" customModule="customCalendar2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="181"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="194" height="181"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCb-sc-KKZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="181"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCb-sc-KKZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                 </imageView>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-xd-m1j">
+                                                    <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YKj-6V-AWM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0l-AQ-3EB">
+                                                                <rect key="frame" x="2.5" y="2.5" width="15" height="15"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="X">
+                                                                    <color key="titleColor" red="0.059617318212985992" green="0.023597938939929008" blue="0.010827131569385529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="deleteButtonDidTap:" destination="gRA-lF-NYA" eventType="touchUpInside" id="bWx-AX-H4y"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="KsO-d6-8BM"/>
+                                                        <constraint firstAttribute="height" constant="20" id="QWa-8G-7QG"/>
+                                                    </constraints>
+                                                    <blurEffect style="extraLight"/>
+                                                </visualEffectView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.95313030481338501" green="1" blue="0.0043887542560696602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="xCb-sc-KKZ" firstAttribute="leading" secondItem="gRA-lF-NYA" secondAttribute="leading" id="1rr-d4-aFI"/>
-                                            <constraint firstAttribute="bottom" secondItem="xCb-sc-KKZ" secondAttribute="bottom" id="QzL-53-wLx"/>
-                                            <constraint firstAttribute="trailing" secondItem="xCb-sc-KKZ" secondAttribute="trailing" id="TCt-AG-Xx9"/>
-                                            <constraint firstItem="xCb-sc-KKZ" firstAttribute="top" secondItem="gRA-lF-NYA" secondAttribute="top" id="eVM-tw-OwB"/>
+                                            <constraint firstItem="xCb-sc-KKZ" firstAttribute="leading" secondItem="gRA-lF-NYA" secondAttribute="leading" id="10I-E9-nCe"/>
+                                            <constraint firstAttribute="trailing" secondItem="xCb-sc-KKZ" secondAttribute="trailing" id="DNi-oT-Ban"/>
+                                            <constraint firstItem="xCb-sc-KKZ" firstAttribute="top" secondItem="gRA-lF-NYA" secondAttribute="top" id="I3g-Ix-vHE"/>
+                                            <constraint firstAttribute="bottom" secondItem="xCb-sc-KKZ" secondAttribute="bottom" id="PQw-oj-hmA"/>
+                                            <constraint firstItem="4fC-xd-m1j" firstAttribute="leading" secondItem="gRA-lF-NYA" secondAttribute="leading" constant="8" id="lcF-Xu-9SP"/>
+                                            <constraint firstItem="4fC-xd-m1j" firstAttribute="top" secondItem="gRA-lF-NYA" secondAttribute="top" constant="8" id="ywi-CX-Ofn"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButtonView" destination="4fC-xd-m1j" id="XvH-on-HuA"/>
                                             <outlet property="imageView" destination="xCb-sc-KKZ" id="yh0-Dk-OVC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoA-SN-MEX">
-                                <rect key="frame" x="1036" y="123" width="56" height="30"/>
+                                <rect key="frame" x="1036" y="163" width="56" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="사진 추가"/>
+                                <connections>
+                                    <action selector="addNewPhotoDidTap:" destination="Q7L-3k-rOi" eventType="touchUpInside" id="cNg-2T-KRg"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iik-Ob-21q">
-                                <rect key="frame" x="366" y="60" width="121" height="29"/>
+                                <rect key="frame" x="19" y="165" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Text"/>
@@ -691,22 +722,65 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgB-zN-5Zu">
+                                <rect key="frame" x="679" y="163" width="56" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="사진 삭제"/>
+                                <connections>
+                                    <action selector="deletePhotoDidTap:" destination="Q7L-3k-rOi" eventType="touchUpInside" id="bvE-LT-4pJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="e1V-1j-Rok"/>
                     </view>
                     <connections>
                         <outlet property="date_written" destination="WM4-Cl-mUi" id="mds-VL-HAU"/>
+                        <outlet property="deleteButton" destination="kgB-zN-5Zu" id="mNS-sa-BlK"/>
                         <outlet property="mainImageView" destination="j5Q-Iy-K7x" id="t82-Id-dlj"/>
                         <outlet property="photoCollectionView" destination="j8U-bi-6mh" id="jBx-iV-Ugg"/>
                         <outlet property="segButton" destination="Iik-Ob-21q" id="ZNQ-DG-Hrx"/>
                         <outlet property="tempImageView" destination="DaH-bH-9sI" id="S3n-zk-vQ3"/>
                         <outlet property="textView" destination="4Wt-zK-ILM" id="1o6-Sm-IQO"/>
+                        <segue destination="J5N-OB-FBy" kind="presentation" identifier="showImageDetail" modalPresentationStyle="currentContext" id="IzI-C2-qod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtT-ZK-kas" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="581" y="-1269"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="cMB-UK-NoY">
+            <objects>
+                <viewController id="J5N-OB-FBy" customClass="PhotoDetailViewController" customModule="customCalendar2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hBR-k3-8G8">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGk-8X-dYh">
+                                <rect key="frame" x="0.0" y="56" width="1112" height="778"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFV-Sm-Zyt">
+                                <rect key="frame" x="26" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="J5N-OB-FBy" eventType="touchUpInside" id="E2e-CP-odp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bJU-iC-v9r"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="AFV-Sm-Zyt" id="L50-GZ-CuV"/>
+                        <outlet property="imageView" destination="zGk-8X-dYh" id="QeT-Ij-PH9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqW-SS-NV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692.80575539568349" y="-1419.4244604316548"/>
         </scene>
     </scenes>
     <resources>
