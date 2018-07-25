@@ -7,6 +7,5 @@ target 'customCalendar2' do
 
   # Pods for customCalendar2
   pod 'RealmSwift'
-  pod 'AnimatedCollectionViewLayout'
 
 end

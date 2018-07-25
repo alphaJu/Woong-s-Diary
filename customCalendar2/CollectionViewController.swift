@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AnimatedCollectionViewLayout
+//import AnimatedCollectionViewLayout
 import RealmSwift
 import Darwin
 
@@ -22,7 +22,7 @@ class CollectionViewController: UICollectionViewController {
     var date:String?
     var days: [String] = []
     var carImages = [String]()
-    var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
+//    var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
     var Test: Int = 0
     var textExamples = [String]()
     var daily: [UIImage] = []
@@ -83,11 +83,11 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView?.isPagingEnabled = false
         self.collectionView?.isScrollEnabled = true
         
-        animator = (LinearCardAttributesAnimator(), false, 1, 1)
-        
-        if let layout = self.collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
-            layout.animator = animator?.0
-        }
+//            animator = (LinearCardAttributesAnimator(), false, 1, 1)
+//
+//            if let layout = self.collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
+//                layout.animator = animator?.0
+//            }
         
         if let layout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal

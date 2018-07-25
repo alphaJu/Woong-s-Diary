@@ -33,7 +33,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="uRg-pf-Gp9">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P8b-ls-s0z">
                             <size key="itemSize" width="331" height="783"/>
                             <size key="headerReferenceSize" width="50" height="38"/>
@@ -803,7 +803,7 @@
         <image name="blue_circle" width="77" height="77"/>
         <image name="brush" width="170" height="170"/>
         <image name="eraser" width="170" height="170"/>
-        <image name="exit" width="75" height="75"/>
+        <image name="exit" width="170" height="170"/>
         <image name="green_circle" width="77" height="77"/>
         <image name="red_circle" width="77" height="77"/>
         <image name="reset" width="533" height="533"/>
