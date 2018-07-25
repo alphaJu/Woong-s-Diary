@@ -27,6 +27,7 @@ class CollectionViewController: UICollectionViewController {
     var textExamples = [String]()
     var daily: [UIImage] = []
     var detail: [UIImage] = []
+    var titles: [String] = []
     var empty: UIImage?
     var empty2: UIImage?
     
@@ -42,6 +43,8 @@ class CollectionViewController: UICollectionViewController {
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[i])
             let day = realm.objects(cellinfo.self).filter(predicate).first
+            let note = realm.objects(memo.self).filter(predicate).first
+            
             if(day?.date != nil){
                 if(day?.filepath != "" && day?.detail != ""){
                     dailyfile = (day!.filepath)
@@ -64,9 +67,15 @@ class CollectionViewController: UICollectionViewController {
                 daily.append(empty!)
                 detail.append(empty2!)
             }
+            if(note?.title != "" && note?.title != nil){
+                titles.append((note?.title)!)
+            }
+            else{
+                titles.append("")
+            }
         }
-        print(daily)
-        print(detail)
+//        print(daily)
+//        print(detail)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -197,7 +206,7 @@ class CollectionViewController: UICollectionViewController {
             cell.date = days[Test]
             cell.tempImageView.isUserInteractionEnabled = false
             cell.mainImageView.isUserInteractionEnabled = false
-            cell.Diary.text = textExamples[Test]
+            cell.Diary.text = titles[Test]
             cell.imageView.image = daily[Test]
             cell.mainImageView.image = detail[Test]
             
