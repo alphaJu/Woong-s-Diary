@@ -87,7 +87,6 @@
                                             <state key="normal" title="add diary"/>
                                             <connections>
                                                 <action selector="addDiary:" destination="45s-oT-A5K" eventType="touchUpInside" id="Exy-dA-goA"/>
-                                                <segue destination="Q7L-3k-rOi" kind="presentation" identifier="addDiarySegue" id="cIs-Mm-Sdq"/>
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OO9-nS-nl8">
@@ -314,7 +313,7 @@
             <objects>
                 <viewController id="rc6-gd-0Z7" customClass="SettingsViewController" customModule="customCalendar2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cmd-sa-NZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brush" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ej-iZ-xkf">
@@ -391,7 +390,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsC-sb-3a3">
-                                <rect key="frame" x="329" y="617" width="30" height="30"/>
+                                <rect key="frame" x="329" y="510" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Use"/>
                                 <connections>

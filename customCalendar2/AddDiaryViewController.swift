@@ -21,6 +21,11 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var contentText: UITextView!
     var carUIImages = [UIImage]()
     //
+    var test:Int = 0
+    
+    var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
     
     
     @IBOutlet weak var segButton: UISegmentedControl!
@@ -66,12 +71,11 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         //date_written.text = Time
         
-        print("hi \(date)")
+        print("his \(date)")
         
         let date_now_string = NSDate().description
         let index = date_now_string.index(date_now_string.startIndex, offsetBy: 16)
         date_written.text = String(date_now_string[..<index])
-        
         self.view.backgroundColor = UIColor.darkGray
         
         self.contentText.backgroundColor = UIColor.black.withAlphaComponent(0)
@@ -84,7 +88,7 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         mainImageView.image = UIImage(named: "icon2")
         // Do any additional setup after loading the view.
         
-        carImages = ["image1.jpg", "image1.jpg", "image1.jpg", "image2.jpg", "image3.jpg","image1.jpg", "image2.jpg", "image3.jpg", "image3.jpg"]
+//        carImages = ["image1.jpg", "image1.jpg", "image1.jpg", "image2.jpg", "image3.jpg","image1.jpg", "image2.jpg", "image3.jpg", "image3.jpg"]
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         
@@ -95,9 +99,25 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         picker.delegate = self
         
-        for x in carImages {
-            carUIImages.append(UIImage(named: x)!)
+//        for x in carImages {
+//            carUIImages.append(UIImage(named: x)!)
+//        }
+        
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "date = %@",date!)
+        let note = realm.objects(memo.self).filter(predicate).first
+        print(note)
+        if(note != nil){
+            titleText.text = note?.title
+            mainImageView.image = load(fileName: (note?.boardpath)!)
+            contentText.text = note?.body
+            for index in (note?.images)!{
+                carUIImages.append(load(fileName: index)!)
+            }
         }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,11 +131,64 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBAction func save(_ sender: UIButton) {
         //db등록
+        var written_date: String?
+        var bodytitle: String?
+        var content: String?
+        var boardimage: String?
+        var savedimages: List<String> = List()
+        
+        written_date = date_written.text
+        if(titleText.text != ""){
+            bodytitle = titleText.text
+        }
+        else{
+            bodytitle = "untitled"
+        }
+        content = contentText.text
+        boardimage = save_main(image: mainImageView.image!)
+        for index in carUIImages{
+            savedimages.append(save_images(image: index)!)
+            test += 1
+        }
+//        print(written_date)
+//        print(bodytitle)
+//        print(content)
+//        print(boardimage)
+//        print(savedimages)
+        
         let realm = try! Realm()
         let predicate = NSPredicate(format: "date = %@",date!)
-        let day = realm.objects(cellinfo.self).filter(predicate).first
+        var note = realm.objects(memo.self).filter(predicate).first
         
-   
+        if(note == nil){
+            note = memo()
+        }
+        savedimages = (note?.images)!
+
+        
+        if(note?.date != ""){
+            try! realm.write{
+                note?.writtendate = written_date!
+                note?.title = bodytitle!
+                note?.body = content!
+                note?.boardpath = boardimage!
+                note?.images = savedimages
+                print("testpoint1")
+            }
+        }
+        else{
+            note?.date = date!
+            note?.writtendate = written_date!
+            note?.title = bodytitle!
+            note?.body = content!
+            note?.boardpath = boardimage!
+            note?.images = savedimages
+            try! realm.write{
+                realm.add(note!)
+                print("testpoint2")
+            }
+        }
+        
     
         self.dismiss(animated: true)
     
@@ -319,8 +392,49 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         // Pass the selected object to the new view controller.
     }
     */
-}
     
+    private func save_main(image: UIImage) -> String? {
+        let fileName = date! + "mainboard"
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        
+        print("Error saving image")
+        return nil
+    }
+    private func save_images(image: UIImage) -> String? {
+        let fileName = date!+"note"+((String)(test))
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        
+        print("Error saving image")
+        return nil
+    }
+    
+    
+    private func load(fileName: String) -> UIImage? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
+    
+    
+}
+
+
+
+
+
 extension AddDiaryViewController: SettingsViewControllerDelegate {
     func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
         print("extension add diary")

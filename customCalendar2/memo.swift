@@ -13,7 +13,7 @@ class memo: Object {
     @objc dynamic var date: String = ""
     @objc dynamic var writtendate: String = ""
     @objc dynamic var title: String = ""
-    @objc dynamic var text: String = ""
+    @objc dynamic var body: String = ""
     @objc dynamic var boardpath: String = ""
     var images = List<String>()
     
@@ -23,11 +23,11 @@ class memo: Object {
     //            return "date"
     //        }
     
-    convenience init(date: String, writtendate: String, title: String, text: String, boardpath: String, images:List<String>){
+    convenience init(date: String, writtendate: String, title: String, body: String, boardpath: String, images:List<String>){
         self.init()
         self.writtendate = writtendate
         self.title = title
-        self.text = text
+        self.body = body
         self.boardpath = boardpath
         self.images = images
     }
