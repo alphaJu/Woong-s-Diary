@@ -9,6 +9,7 @@
 import UIKit
 import AnimatedCollectionViewLayout
 import RealmSwift
+import Darwin
 
 private let reuseIdentifier = "MyCell"
 
@@ -52,6 +53,7 @@ class CollectionViewController: UICollectionViewController {
         }
         
         
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,31 +89,87 @@ class CollectionViewController: UICollectionViewController {
         return carImages.count
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did select date \(days[indexPath.row])")
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+        popOverVC.date = days[indexPath.row]
+        
+        popOverVC.onSave = { (img) in
+            //            self.calendar.reloadData()
+        }
+        
+        self.present(popOverVC, animated: true)
+    }
+    
+    @objc func tappedMe()
+    {
+        print("Tapped on Image")
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+        popOverVC.date = date
+        
+        
+        //        popOverVC.canvas = self.calendar.cell(for: date, at: monthPosition)?.imageView.image
+        //popOverVC.canvas = self.calendar(self.calendar, cellFor: date, at monthPosition).imageView.image
+        
+        //error
+        popOverVC.onSave = { (img) in
+//            self.calendar.reloadData()
+        }
+        
+        self.present(popOverVC, animated: true)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         //        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         // Configure the cell
         
+        print(days[0])
+        
+        
         if(Test < 7){
+//            date = days[Test]
+//            let tap = UITapGestureRecognizer(target: self, action: #selector(CollectionViewController.tappedMe))
+//            cell.imageView.addGestureRecognizer(tap)
+//            cell.imageView.isUserInteractionEnabled = true
+            
+            for i in 0...4 {
+                cell.stackView.arrangedSubviews[i].isHidden = true
+            }
+            
+            cell.saveStack.arrangedSubviews[0].isHidden = true
+            cell.resetStack.arrangedSubviews[0].isHidden = true
             
             let image = UIImage(named: "icon1")
-            let image2 = UIImage(named: "detailbackground")
+            let image2 = UIImage(named: "background")
             cell.imageView.image = image
             cell.mainImageView.image = image2
+            cell.date = days[Test]
+            cell.tempImageView.isUserInteractionEnabled = false
+            cell.mainImageView.isUserInteractionEnabled = false
+
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])
             let day = realm.objects(cellinfo.self).filter(predicate).first
-            if(day?.filepath != nil){
-                cell.imageView.image = load(fileName: (day!.filepath))
-                cell.mainImageView.image = load(fileName: (day!.detail))
-                print("testpoint: \(Test)")
-                
+            if(day?.date != nil){
+                if(day?.filepath != "" && day?.detail != ""){
+                    cell.imageView.image = load(fileName: (day!.filepath))
+                    cell.mainImageView.image = load(fileName: (day!.detail))
+                }
+                else if(day?.filepath != "" && day?.detail == ""){
+                    cell.imageView.image = load(fileName: (day!.filepath))
+                }
+                else if(day?.filepath == "" && day?.detail != ""){
+                    cell.mainImageView.image = load(fileName: (day!.detail))
+                }
             }
-            
         }
         
-        //        cell.today.text = (String)((Int)(date!)! + Test)
         Test += 1
+        
+        //        cell.today.text = (String)((Int)(date!)! + Test)
+        
         
         return cell
     }
@@ -149,13 +207,18 @@ class CollectionViewController: UICollectionViewController {
         if(self.collectionView?.isScrollEnabled == true){
             self.collectionView?.isScrollEnabled = false
         }
-        else{
+    }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        if(self.collectionView?.isScrollEnabled == false) {
             self.collectionView?.isScrollEnabled = true
         }
-        
     }
+
     @IBAction func closeDetail(_ sender: UIButton) {
-        dismiss(animated: true)
+        Test = 0
+        dismiss(animated: true, completion: nil)
+        
     }
     // MARK: UICollectionViewDelegate
     
