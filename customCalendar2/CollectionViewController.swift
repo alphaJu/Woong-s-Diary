@@ -9,6 +9,7 @@
 import UIKit
 import AnimatedCollectionViewLayout
 import RealmSwift
+import Darwin
 
 private let reuseIdentifier = "MyCell"
 
@@ -27,7 +28,6 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -51,6 +51,7 @@ class CollectionViewController: UICollectionViewController {
         if let layout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+        
         
         
     }
@@ -88,13 +89,37 @@ class CollectionViewController: UICollectionViewController {
         return carImages.count
     }
     
+    @objc func tappedMe()
+    {
+        print("Tapped on Image")
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+        popOverVC.date = date
+        
+        
+        //        popOverVC.canvas = self.calendar.cell(for: date, at: monthPosition)?.imageView.image
+        //popOverVC.canvas = self.calendar(self.calendar, cellFor: date, at monthPosition).imageView.image
+        
+        //error
+        popOverVC.onSave = { (img) in
+//            self.calendar.reloadData()
+        }
+        
+        self.present(popOverVC, animated: true)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         //        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         // Configure the cell
         
+        print(days[0])
+        
         
         if(Test < 7){
+            date = days[Test]
+            let tap = UITapGestureRecognizer(target: self, action: #selector(CollectionViewController.tappedMe))
+            cell.imageView.addGestureRecognizer(tap)
+            cell.imageView.isUserInteractionEnabled = true
             
             for i in 0...4 {
                 cell.stackView.arrangedSubviews[i].isHidden = true
@@ -108,6 +133,9 @@ class CollectionViewController: UICollectionViewController {
             cell.imageView.image = image
             cell.mainImageView.image = image2
             cell.date = days[Test]
+            cell.tempImageView.isUserInteractionEnabled = false
+            cell.mainImageView.isUserInteractionEnabled = false
+
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])
             let day = realm.objects(cellinfo.self).filter(predicate).first
@@ -116,15 +144,15 @@ class CollectionViewController: UICollectionViewController {
                 if(day?.filepath != "" && day?.detail != ""){
                     cell.imageView.image = load(fileName: (day!.filepath))
                     cell.mainImageView.image = load(fileName: (day!.detail))
-                    print("testpoint: \(Test)")
+//                    print("testpoint: \(Test)")
                 }
                 else if(day?.filepath != "" && day?.detail == ""){
                     cell.imageView.image = load(fileName: (day!.filepath))
-                    print("testpoint here")
+//                    print("testpoint here")
                 }
                 else if(day?.filepath == "" && day?.detail != ""){
                     cell.mainImageView.image = load(fileName: (day!.detail))
-                    print("testpoint there")
+//                    print("testpoint there")
                 }
             }
         }
@@ -136,6 +164,7 @@ class CollectionViewController: UICollectionViewController {
         
         return cell
     }
+    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MyHeader", for: indexPath)
@@ -177,10 +206,11 @@ class CollectionViewController: UICollectionViewController {
             self.collectionView?.isScrollEnabled = true
         }
     }
-    
+
     @IBAction func closeDetail(_ sender: UIButton) {
-        dismiss(animated: true)
         Test = 0
+        dismiss(animated: true, completion: nil)
+        
     }
     // MARK: UICollectionViewDelegate
     
