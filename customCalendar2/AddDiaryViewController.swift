@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "photoCell"
 
@@ -85,6 +86,7 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBAction func save(_ sender: UIButton) {
         self.dismiss(animated: true)
+        
         //db등록
     }
     @IBAction func indexChanged(_ sender: Any) {
