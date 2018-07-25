@@ -89,6 +89,19 @@ class CollectionViewController: UICollectionViewController {
         return carImages.count
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did select date \(days[indexPath.row])")
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+        popOverVC.date = days[indexPath.row]
+        
+        popOverVC.onSave = { (img) in
+            //            self.calendar.reloadData()
+        }
+        
+        self.present(popOverVC, animated: true)
+    }
+    
     @objc func tappedMe()
     {
         print("Tapped on Image")
@@ -116,10 +129,10 @@ class CollectionViewController: UICollectionViewController {
         
         
         if(Test < 7){
-            date = days[Test]
-            let tap = UITapGestureRecognizer(target: self, action: #selector(CollectionViewController.tappedMe))
-            cell.imageView.addGestureRecognizer(tap)
-            cell.imageView.isUserInteractionEnabled = true
+//            date = days[Test]
+//            let tap = UITapGestureRecognizer(target: self, action: #selector(CollectionViewController.tappedMe))
+//            cell.imageView.addGestureRecognizer(tap)
+//            cell.imageView.isUserInteractionEnabled = true
             
             for i in 0...4 {
                 cell.stackView.arrangedSubviews[i].isHidden = true
@@ -139,20 +152,16 @@ class CollectionViewController: UICollectionViewController {
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])
             let day = realm.objects(cellinfo.self).filter(predicate).first
-//            print((day?.filepath)!+" "+(day?.detail)!)
             if(day?.date != nil){
                 if(day?.filepath != "" && day?.detail != ""){
                     cell.imageView.image = load(fileName: (day!.filepath))
                     cell.mainImageView.image = load(fileName: (day!.detail))
-//                    print("testpoint: \(Test)")
                 }
                 else if(day?.filepath != "" && day?.detail == ""){
                     cell.imageView.image = load(fileName: (day!.filepath))
-//                    print("testpoint here")
                 }
                 else if(day?.filepath == "" && day?.detail != ""){
                     cell.mainImageView.image = load(fileName: (day!.detail))
-//                    print("testpoint there")
                 }
             }
         }
