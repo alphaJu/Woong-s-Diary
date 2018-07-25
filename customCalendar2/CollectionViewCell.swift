@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -14,6 +15,10 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var Diary: UITextView!
     @IBOutlet weak var Edit: UIButton!
+    
+    var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
     
     var lastPoint = CGPoint.zero // CGPoint.zeroPoint
     var red: CGFloat = 0.0
@@ -134,6 +139,44 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func saveDetail(_ sender: UIButton){
+        if let img = mainImageView.image {
+            //            let img2 = resizeImage(image: img, targetSize: CGSize(width: 158.5,height: 104.0))
+            let realm = try! Realm()
+            let predicate = NSPredicate(format: "date = %@",date!)
+            var test = realm.objects(cellinfo.self).filter(predicate).first
+            if(test == nil){
+                test = cellinfo()
+            }
+            //            test.filepath = save(image: img)!
+            if(test?.date == nil){
+                test?.date = date!
+                test?.detail = save(image: img)!
+                try! realm.write{
+                    realm.add(test!)
+                    print("testpoint2")
+                }
+            }
+            else if(test?.detail != "" || (test?.filepath != "" && test?.detail == "")){
+                try! realm.write{
+                    test?.detail = save(image: img)!
+                    print("testpoint1")
+                }
+            }
+            
+            
+        }
+    }
     
-    
+    private func save(image: UIImage) -> String? {
+        let fileName = date!+"detail"
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        
+        print("Error saving image")
+        return nil
+    }
 }

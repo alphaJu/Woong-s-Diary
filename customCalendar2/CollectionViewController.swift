@@ -28,6 +28,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -92,26 +93,39 @@ class CollectionViewController: UICollectionViewController {
         //        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         // Configure the cell
         
+        
         if(Test < 7){
             
             let image = UIImage(named: "icon1")
-            let image2 = UIImage(named: "detailbackground")
+            let image2 = UIImage(named: "background")
             cell.imageView.image = image
             cell.mainImageView.image = image2
+            cell.date = days[Test]
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])
             let day = realm.objects(cellinfo.self).filter(predicate).first
-            if(day?.filepath != nil){
-                cell.imageView.image = load(fileName: (day!.filepath))
-                cell.mainImageView.image = load(fileName: (day!.detail))
-                print("testpoint: \(Test)")
-                
+//            print((day?.filepath)!+" "+(day?.detail)!)
+            if(day?.date != nil){
+                if(day?.filepath != "" && day?.detail != ""){
+                    cell.imageView.image = load(fileName: (day!.filepath))
+                    cell.mainImageView.image = load(fileName: (day!.detail))
+                    print("testpoint: \(Test)")
+                }
+                else if(day?.filepath != "" && day?.detail == ""){
+                    cell.imageView.image = load(fileName: (day!.filepath))
+                    print("testpoint here")
+                }
+                else if(day?.filepath == "" && day?.detail != ""){
+                    cell.mainImageView.image = load(fileName: (day!.detail))
+                    print("testpoint there")
+                }
             }
-            
         }
         
-        //        cell.today.text = (String)((Int)(date!)! + Test)
         Test += 1
+        
+        //        cell.today.text = (String)((Int)(date!)! + Test)
+        
         
         return cell
     }
@@ -153,9 +167,16 @@ class CollectionViewController: UICollectionViewController {
             self.collectionView?.isScrollEnabled = true
         }
         
+        let index: [Int] = [0,1,2,3,4]
+        
+        for item in index{
+            
+        }
     }
+    
     @IBAction func closeDetail(_ sender: UIButton) {
         dismiss(animated: true)
+        Test = 0
     }
     // MARK: UICollectionViewDelegate
     

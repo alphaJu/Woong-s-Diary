@@ -16,9 +16,9 @@ class cellinfo: Object {
     @objc dynamic var detail: String = ""
     
     
-        override static func primaryKey() -> String? {
-            return "date"
-        }
+//        override static func primaryKey() -> String? {
+//            return "date"
+//        }
     
     convenience init(date: String, filepath: String, holiday: String, detail: String){
         self.init()

@@ -198,8 +198,11 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         img = UIImage(named: "icon1")!
         let predicate = NSPredicate(format: "date = %@",test!)
         let day = realm.objects(cellinfo.self).filter(predicate).first
+        print(test)
         if(day?.filepath != nil){
-            img = loads(fileName: (day!.filepath))!
+            if(day?.filepath != ""){
+                img = loads(fileName: (day!.filepath))!
+            }
         }
         let img2 = resizeImage(image: img, targetSize: CGSize(width: 159.0,height: 104.0))
         return img2
