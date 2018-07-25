@@ -64,7 +64,7 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         let date_now_string = NSDate().description
         let index = date_now_string.index(date_now_string.startIndex, offsetBy: 16)
         date_written.text = String(date_now_string[..<index])
-        
+        print(date)
         self.view.backgroundColor = UIColor.darkGray
         
         self.textView.backgroundColor = UIColor.black.withAlphaComponent(0)
@@ -106,8 +106,26 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         //db등록
         let realm = try! Realm()
         let predicate = NSPredicate(format: "date = %@",date!)
-        let day = realm.objects(cellinfo.self).filter(predicate).first
+        var note = realm.objects(memo.self).filter(predicate).first
         
+        if(note == nil){
+            note = memo()
+        }
+
+        if(note?.date != ""){
+            try! realm.write{
+//                note?.title =
+                print("testpoint1")
+            }
+        }
+        else{
+            note?.date = date!
+//            note?.titile = save(image: img)!
+            try! realm.write{
+                realm.add(note!)
+                print("testpoint2")
+            }
+        }
    
     
         self.dismiss(animated: true)
