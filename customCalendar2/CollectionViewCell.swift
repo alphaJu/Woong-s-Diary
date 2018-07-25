@@ -27,6 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var saveStack: UIStackView!
     @IBOutlet weak var resetStack: UIStackView!
     @IBOutlet weak var brushStack: UIStackView!
+    @IBOutlet weak var todayDate: UILabel!
     
     var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

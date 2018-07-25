@@ -107,7 +107,7 @@ class CalendarCell: FSCalendarCell {
         // Override the build-in appearance configuration
         if self.isPlaceholder {
             self.eventIndicator.isHidden = true
-            self.titleLabel.textColor = UIColor.yellow
+            self.titleLabel.textColor = UIColor.black.withAlphaComponent(0.5)
         }else if self.dateIsToday {
             self.titleLabel.textColor = UIColor.blue
             self.subtitleLabel.textColor = UIColor.blue
