@@ -9,6 +9,13 @@
 import UIKit
 import RealmSwift
 
+
+//set protocol
+protocol CollectionViewDelegate : class{
+    func pushDate(cell: CollectionViewCell)
+}
+
+
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -24,6 +31,8 @@ class CollectionViewCell: UICollectionViewCell {
     var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
+    
+    weak var delegate: CollectionViewDelegate?
     
     var lastPoint = CGPoint.zero // CGPoint.zeroPoint
     var red: CGFloat = 0.0
@@ -114,6 +123,12 @@ class CollectionViewCell: UICollectionViewCell {
         
     }
     //MARK: Actions
+    
+    
+    @IBAction func addDiary(_ sender: Any) {
+        self.delegate?.pushDate(cell: self)
+    }
+    
     
     @IBAction func editPressed(_ sender: UIButton) {
         print(tempImageView.isUserInteractionEnabled)
@@ -228,6 +243,10 @@ class CollectionViewCell: UICollectionViewCell {
         print("Error saving image")
         return nil
     }
+    
+    //call delegate and perform protocol
+    
+    
 }
 
 
