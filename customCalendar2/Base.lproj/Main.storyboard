@@ -87,7 +87,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="add diary"/>
                                             <connections>
-                                                <action selector="addDiary:" destination="45s-oT-A5K" eventType="touchUpInside" id="Foy-mK-CNU"/>
                                                 <action selector="addDiary:" destination="45s-oT-A5K" eventType="touchUpInside" id="Exy-dA-goA"/>
                                             </connections>
                                         </button>
