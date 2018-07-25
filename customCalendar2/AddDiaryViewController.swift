@@ -25,7 +25,17 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var tempImageView: UIImageView!
     
     var carImages = [String]()
+    var carUIImages = [UIImage]()
 
+    struct Storyboard {
+        static let photoCell = "photoCell"
+        static let leftAndRightPaddings: CGFloat = 2.0
+        static let numberOfItemsPerRow: CGFloat = 2.0
+        static let photoDetail = "showImageDetail"
+    }
+    
+    let picker = UIImagePickerController()
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var lastPoint = CGPoint.zero // CGPoint.zeroPoint
@@ -70,9 +80,20 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         mainImageView.image = UIImage(named: "icon2")
         // Do any additional setup after loading the view.
         
-        carImages = ["image1.jpg", "image1.jpg", "image1.jpg", "image1.jpg", "image1.jpg", "image3.jpg", "image1.jpg", "image2.jpg", "image3.jpg","image1.jpg", "image2.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg", "image3.jpg"]
+        carImages = ["image1.jpg", "image1.jpg", "image1.jpg", "image2.jpg", "image3.jpg","image1.jpg", "image2.jpg", "image3.jpg", "image3.jpg"]
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
+        
+        let collectionViewWidth = photoCollectionView.frame.width
+        let itemWidth = (collectionViewWidth - Storyboard.leftAndRightPaddings)/Storyboard.numberOfItemsPerRow
+        let layout = photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        
+        picker.delegate = self
+        
+        for x in carImages {
+            carUIImages.append(UIImage(named: x)!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -190,14 +211,21 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let settingsViewController = segue.destination as! SettingsViewController
-        settingsViewController.delegate = self
-        settingsViewController.brush = brushWidth
-        settingsViewController.opacity = opacity
-        
-        settingsViewController.red = red
-        settingsViewController.green = green
-        settingsViewController.blue = blue
+        if segue.identifier == Storyboard.photoDetail {
+            let photoVC = segue.destination as! PhotoDetailViewController
+            photoVC.photo = selectedImage
+            
+            
+        }else{
+            let settingsViewController = segue.destination as! SettingsViewController
+            settingsViewController.delegate = self
+            settingsViewController.brush = brushWidth
+            settingsViewController.opacity = opacity
+            
+            settingsViewController.red = red
+            settingsViewController.green = green
+            settingsViewController.blue = blue
+        }
     }
     
     
@@ -211,23 +239,65 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
      
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      // #warning Incomplete implementation, return the number of items
-     return carImages.count
+     return carUIImages.count
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DiaryPhotoCell
      
      // Configure the cell
-     let image = UIImage(named: carImages[indexPath.row])
-        print(carImages[indexPath.row])
-        print(image)
-     cell.imageView.image = image
-     
+     //let image = UIImage(named: carImages[indexPath.row])
+ 
+     cell.imageView.image = carUIImages[indexPath.row]
+     cell.deleteButtonView.layer.cornerRadius = cell.deleteButtonView.bounds.width/2.0
+     cell.deleteButtonView.layer.masksToBounds = true
+     cell.deleteButtonView.isHidden = !cell.isEditing
+        
+     cell.delegate = self
+        
      return cell
      }
+    
+    
+    var selectedImage: UIImage!
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedImage = UIImage(named: carImages[indexPath.row])
+        tempImageView.isUserInteractionEnabled = false //why????????
+        mainImageView.isUserInteractionEnabled = false
+        performSegue(withIdentifier: Storyboard.photoDetail, sender: nil)
+    
+    }
      
+    @IBAction func addNewPhotoDidTap(_ sender: Any) {
+        picker.sourceType = .photoLibrary
+        present(picker, animated: false, completion: nil)
+    }
     
+   
+    @IBOutlet weak var deleteButton: UIButton!
+    var removing : Bool = false
     
+    @IBAction func deletePhotoDidTap(_ sender: Any) {
+        
+        removing = !removing
+        
+        if let indexPaths = photoCollectionView?.indexPathsForVisibleItems{
+            for indexPath in indexPaths {
+                if let cell = photoCollectionView.cellForItem(at: indexPath) as? DiaryPhotoCell {
+                    cell.isEditing = removing
+                }
+            }
+        }
+        
+        //안바뀜
+        if removing {
+            deleteButton.titleLabel?.text = "삭제 완료"
+        }else{
+            deleteButton.titleLabel?.text = "사진 삭제"
+        }
+       
+    }
     
 
     /*
@@ -241,18 +311,47 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     */
 }
     
-    extension AddDiaryViewController: SettingsViewControllerDelegate {
-        func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
-            print("extension add diary")
-            self.brushWidth = settingsViewController.brush
-            //self.widthForBrush = self.brushWidth
-            
-            self.opacity = settingsViewController.opacity
-            
-            self.red = settingsViewController.red
-            self.green = settingsViewController.green
-            self.blue = settingsViewController.blue
-        }
-
+extension AddDiaryViewController: SettingsViewControllerDelegate {
+    func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
+        print("extension add diary")
+        self.brushWidth = settingsViewController.brush
+        //self.widthForBrush = self.brushWidth
+        
+        self.opacity = settingsViewController.opacity
+        
+        self.red = settingsViewController.red
+        self.green = settingsViewController.green
+        self.blue = settingsViewController.blue
     }
+
+}
+
+extension AddDiaryViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        carUIImages.append(info[UIImagePickerControllerOriginalImage] as! UIImage)
+        let insertedIndexPath = IndexPath(item: 1, section: 0)
+        photoCollectionView.insertItems(at: [insertedIndexPath])
+    
+        self.dismiss(animated: true)
+    }
+    
+}
+
+extension AddDiaryViewController : PhotoCellDelegate {
+    func delete(cell: DiaryPhotoCell) {
+        if let indexPath = photoCollectionView?.indexPath(for: cell){
+            
+            carUIImages.remove(at: indexPath.item)
+            
+            photoCollectionView?.deleteItems(at: [indexPath])
+            
+        }
+    }
+}
+
+
+
 

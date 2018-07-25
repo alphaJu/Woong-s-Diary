@@ -19,6 +19,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var editStack: UIStackView!
     @IBOutlet weak var saveStack: UIStackView!
     @IBOutlet weak var resetStack: UIStackView!
+    @IBOutlet weak var brushStack: UIStackView!
     
     var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -29,14 +30,13 @@ class CollectionViewCell: UICollectionViewCell {
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
     var black: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
+    var brushWidth: CGFloat = 6.0
     var opacity: CGFloat = 1.0
     var swiped = false
     var date:String?
-    
+    var brushPressed = false
     
     var widthForErase: CGFloat = 15.0
-    var widthForBrush: CGFloat = 3.0
     
     let colors: [(CGFloat, CGFloat, CGFloat)] = [
         (1.0, 0, 0),
@@ -46,7 +46,7 @@ class CollectionViewCell: UICollectionViewCell {
         (1.0, 1.0, 1.0)
     ]
     
-
+    let width: [CGFloat] = [3.0, 6.0, 9.0]
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
@@ -124,7 +124,7 @@ class CollectionViewCell: UICollectionViewCell {
         else{
             tempImageView.isUserInteractionEnabled = true
         }
-        for i in 0...4 {
+        for i in 0...5 {
             stackView.arrangedSubviews[i].isHidden = false
         }
         editStack.arrangedSubviews[0].isHidden = true
@@ -148,10 +148,39 @@ class CollectionViewCell: UICollectionViewCell {
             opacity = 1.0
             brushWidth = widthForErase
         }
+    }
+    
+    @IBAction func brushPressed(_ sender: UIButton) {
+        if brushPressed {
+            for i in 0...2 {
+                brushStack.arrangedSubviews[i].isHidden = true
+            }
+            brushPressed = false
+        }
         else {
-            brushWidth = widthForBrush
+            for i in 0...2 {
+                brushStack.arrangedSubviews[i].isHidden = false
+            }
+            brushPressed = true
         }
     }
+    
+    @IBAction func brushWidth(_ sender: UIButton) {
+        var index = sender.tag
+        if index < 0 || index >= width.count {
+            index = 0
+        }
+        
+        brushWidth = width[index]
+        
+        for i in 0...2 {
+            brushStack.arrangedSubviews[i].isHidden = true
+        }
+        brushPressed = false
+        
+    }
+    
+    
     
     @IBAction func saveDetail(_ sender: UIButton){
         
@@ -180,7 +209,7 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }
         
-        for i in 0...4 {
+        for i in 0...5 {
             stackView.arrangedSubviews[i].isHidden = true
         }
         editStack.arrangedSubviews[0].isHidden = false

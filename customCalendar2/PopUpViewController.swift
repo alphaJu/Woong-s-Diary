@@ -20,6 +20,7 @@ class PopUpViewController: UIViewController {
     
     var onSave: ((UIImage)->())?
     var canvas: UIImage?
+    var cancel: (()->())?
     
     var lastPoint = CGPoint.zero // CGPoint.zeroPoint
     var red: CGFloat = 0.0
@@ -283,6 +284,11 @@ class PopUpViewController: UIViewController {
         
         dismiss(animated: true)
     
+    }
+    
+    @IBAction func cancelPopUp(_ sender: Any) {
+        cancel?()
+        dismiss(animated: true)
     }
     
     private func save(image: UIImage) -> String? {
