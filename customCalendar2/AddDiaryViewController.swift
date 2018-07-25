@@ -150,13 +150,13 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         for index in carUIImages{
             savedimages.append(save_images(image: index)!)
             test += 1
+            print("savepoint")
         }
 //        print(written_date)
 //        print(bodytitle)
 //        print(content)
 //        print(boardimage)
 //        print(savedimages)
-        
         let realm = try! Realm()
         let predicate = NSPredicate(format: "date = %@",date!)
         var note = realm.objects(memo.self).filter(predicate).first
@@ -164,7 +164,6 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         if(note == nil){
             note = memo()
         }
-        savedimages = (note?.images)!
 
         
         if(note?.date != ""){
@@ -174,6 +173,8 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
                 note?.body = content!
                 note?.boardpath = boardimage!
                 note?.images = savedimages
+                print(savedimages)
+                print(note?.images)
                 print("testpoint1")
             }
         }
@@ -457,6 +458,7 @@ extension AddDiaryViewController : UIImagePickerControllerDelegate,UINavigationC
         
         
         carUIImages.append(info[UIImagePickerControllerOriginalImage] as! UIImage)
+        print(carUIImages)
         //let insertedIndexPath = IndexPath(item: 1, section: 0)
         photoCollectionView.insertItems(at: [NSIndexPath(row: self.carUIImages.count - 1, section: 0) as IndexPath])
 
