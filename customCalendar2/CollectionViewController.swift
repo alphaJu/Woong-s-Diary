@@ -24,7 +24,7 @@ class CollectionViewController: UICollectionViewController {
     var carImages = [String]()
     var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
     var Test: Int = 0
-    //    var direction: UICollectionViewScrollDirection = .horizontal
+    var textExamples = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ class CollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         
         carImages = ["image1.jpg", "image2.jpg", "image3.jpg", "image1.jpg", "image2.jpg", "image3.jpg", "image1.jpg"]
+        
+        textExamples = ["Hello", "How are you", "Let's go home", "I want to be rich", "WOW", "AMAZING", "FANTASTIC"]
         
         self.collectionView?.isPagingEnabled = false
         self.collectionView?.isScrollEnabled = true
@@ -134,12 +136,18 @@ class CollectionViewController: UICollectionViewController {
 //            cell.imageView.addGestureRecognizer(tap)
 //            cell.imageView.isUserInteractionEnabled = true
             
-            for i in 0...4 {
+            for i in 0...5 {
                 cell.stackView.arrangedSubviews[i].isHidden = true
+            }
+            
+            for i in 0...2 {
+                cell.brushStack.arrangedSubviews[i].isHidden = true
             }
             
             cell.saveStack.arrangedSubviews[0].isHidden = true
             cell.resetStack.arrangedSubviews[0].isHidden = true
+            
+            cell.Diary.isEditable = false
             
             let image = UIImage(named: "icon1")
             let image2 = UIImage(named: "background")
@@ -148,6 +156,7 @@ class CollectionViewController: UICollectionViewController {
             cell.date = days[Test]
             cell.tempImageView.isUserInteractionEnabled = false
             cell.mainImageView.isUserInteractionEnabled = false
+            cell.Diary.text = textExamples[Test]
 
             let realm = try! Realm()
             let predicate = NSPredicate(format: "date = %@",days[Test])

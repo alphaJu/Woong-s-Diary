@@ -298,6 +298,9 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             self.calendar.deselect(date)
         }
         
+        popOverVC.cancel = { () in
+            self.calendar.deselect(date)
+        }
         self.present(popOverVC, animated: true)
         
         
