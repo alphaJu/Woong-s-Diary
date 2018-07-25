@@ -28,6 +28,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var resetStack: UIStackView!
     @IBOutlet weak var brushStack: UIStackView!
     @IBOutlet weak var todayDate: UILabel!
+    @IBOutlet weak var closeStack: UIStackView!
     
     var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -146,6 +147,7 @@ class CollectionViewCell: UICollectionViewCell {
         editStack.arrangedSubviews[0].isHidden = true
         saveStack.arrangedSubviews[0].isHidden = false
         resetStack.arrangedSubviews[0].isHidden = false
+        closeStack.arrangedSubviews[0].isHidden = false
     }
     
     @IBAction func reset(_ sender: UIButton) {
@@ -196,6 +198,20 @@ class CollectionViewCell: UICollectionViewCell {
         
     }
     
+    @IBAction func closePressed(_ sender: UIButton) {
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "date = %@", date!)
+        var test = realm.objects(cellinfo.self).filter(predicate).first
+        mainImageView.image = load(fileName: (test?.detail)!)
+        
+        for i in 0...5 {
+            stackView.arrangedSubviews[i].isHidden = true
+        }
+        editStack.arrangedSubviews[0].isHidden = false
+        saveStack.arrangedSubviews[0].isHidden = true
+        resetStack.arrangedSubviews[0].isHidden = true
+        closeStack.arrangedSubviews[0].isHidden = true
+    }
     
     
     @IBAction func saveDetail(_ sender: UIButton){
@@ -209,7 +225,7 @@ class CollectionViewCell: UICollectionViewCell {
                 test = cellinfo()
             }
             //            test.filepath = save(image: img)!
-            if(test?.date == nil){
+            if(test?.date == ""){
                 test?.date = date!
                 test?.detail = save(image: img)!
                 try! realm.write{
@@ -231,6 +247,7 @@ class CollectionViewCell: UICollectionViewCell {
         editStack.arrangedSubviews[0].isHidden = false
         saveStack.arrangedSubviews[0].isHidden = true
         resetStack.arrangedSubviews[0].isHidden = true
+        closeStack.arrangedSubviews[0].isHidden = true
     }
     
     private func save(image: UIImage) -> String? {
@@ -244,6 +261,18 @@ class CollectionViewCell: UICollectionViewCell {
         print("Error saving image")
         return nil
     }
+    
+    private func load(fileName: String) -> UIImage? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
+    
     
     //call delegate and perform protocol
     
