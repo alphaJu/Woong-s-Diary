@@ -16,11 +16,8 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     var date: String? //cell에서 얻어와야 함.
     
     @IBOutlet weak var date_written: UITextField!
-    
     @IBOutlet weak var segButton: UISegmentedControl!
-    
     @IBOutlet weak var textView: UITextView!
-    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
@@ -106,9 +103,15 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func save(_ sender: UIButton) {
-        self.dismiss(animated: true)
-        
         //db등록
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "date = %@",date!)
+        let day = realm.objects(cellinfo.self).filter(predicate).first
+        
+   
+    
+        self.dismiss(animated: true)
+    
     }
     @IBAction func indexChanged(_ sender: Any) {
         if segButton.selectedSegmentIndex == 0 {

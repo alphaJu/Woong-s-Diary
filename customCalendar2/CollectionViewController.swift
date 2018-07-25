@@ -25,9 +25,48 @@ class CollectionViewController: UICollectionViewController {
     var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
     var Test: Int = 0
     var textExamples = [String]()
+    var daily: [UIImage] = []
+    var detail: [UIImage] = []
+    var empty: UIImage?
+    var empty2: UIImage?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0...6{
+            var dailyfile: String = ""
+            var detailfile: String = ""
+            empty = UIImage(named: "icon1")!
+            empty2 = UIImage(named: "background")!
+            let realm = try! Realm()
+            let predicate = NSPredicate(format: "date = %@",days[i])
+            let day = realm.objects(cellinfo.self).filter(predicate).first
+            if(day?.date != nil){
+                if(day?.filepath != "" && day?.detail != ""){
+                    dailyfile = (day!.filepath)
+                    detailfile = (day!.detail)
+                    daily.append(load(fileName: dailyfile)!)
+                    detail.append(load(fileName: detailfile)!)
+                }
+                else if(day?.filepath != "" && day?.detail == ""){
+                    dailyfile = (day!.filepath)
+                    daily.append(load(fileName: dailyfile)!)
+                    detail.append(empty2!)
+                }
+                else if(day?.filepath == "" && day?.detail != ""){
+                    daily.append(empty!)
+                    detailfile = day!.detail
+                    detail.append(load(fileName: detailfile)!)
+                }
+            }
+            else{
+                daily.append(empty!)
+                detail.append(empty2!)
+            }
+        }
+        print(daily)
+        print(detail)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -149,30 +188,17 @@ class CollectionViewController: UICollectionViewController {
             
             cell.Diary.isEditable = false
             
-            let image = UIImage(named: "icon1")
-            let image2 = UIImage(named: "background")
-            cell.imageView.image = image
-            cell.mainImageView.image = image2
+//            let image = UIImage(named: "icon1")
+//            let image2 = UIImage(named: "background")
+//            cell.imageView.image = image
+//            cell.mainImageView.image = image2
             cell.date = days[Test]
             cell.tempImageView.isUserInteractionEnabled = false
             cell.mainImageView.isUserInteractionEnabled = false
             cell.Diary.text = textExamples[Test]
-
-            let realm = try! Realm()
-            let predicate = NSPredicate(format: "date = %@",days[Test])
-            let day = realm.objects(cellinfo.self).filter(predicate).first
-            if(day?.date != nil){
-                if(day?.filepath != "" && day?.detail != ""){
-                    cell.imageView.image = load(fileName: (day!.filepath))
-                    cell.mainImageView.image = load(fileName: (day!.detail))
-                }
-                else if(day?.filepath != "" && day?.detail == ""){
-                    cell.imageView.image = load(fileName: (day!.filepath))
-                }
-                else if(day?.filepath == "" && day?.detail != ""){
-                    cell.mainImageView.image = load(fileName: (day!.detail))
-                }
-            }
+            cell.imageView.image = daily[Test]
+            cell.mainImageView.image = detail[Test]
+            
         }
         
         Test += 1
