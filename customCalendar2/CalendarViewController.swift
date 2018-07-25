@@ -56,8 +56,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         view.addSubview(calendar)
         self.calendar = calendar
         
-        calendar.calendarHeaderView.backgroundColor = UIColor.blue.withAlphaComponent(0.1)
-        calendar.calendarWeekdayView.backgroundColor = UIColor.red.withAlphaComponent(0.1)
+        calendar.calendarHeaderView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        calendar.calendarWeekdayView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        calendar.appearance.headerTitleColor = UIColor.white
+        calendar.appearance.weekdayTextColor = UIColor.white
        // calendar.appearance.eventSelectionColor = UIColor.blue
         calendar.appearance.titleOffset = CGPoint(x:15,y:-20)
         calendar.appearance.subtitleOffset = CGPoint(x:15, y:-10)

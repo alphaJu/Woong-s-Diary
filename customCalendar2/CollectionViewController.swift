@@ -146,7 +146,7 @@ class CollectionViewController: UICollectionViewController {
             
             cell.saveStack.arrangedSubviews[0].isHidden = true
             cell.resetStack.arrangedSubviews[0].isHidden = true
-            
+            cell.todayDate.text = days[Test]
             cell.Diary.isEditable = false
             
             let image = UIImage(named: "icon1")

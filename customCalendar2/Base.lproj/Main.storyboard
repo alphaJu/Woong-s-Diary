@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,40 +35,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P8b-ls-s0z">
-                            <size key="itemSize" width="331" height="763"/>
-                            <size key="headerReferenceSize" width="50" height="32"/>
+                            <size key="itemSize" width="331" height="783"/>
+                            <size key="headerReferenceSize" width="50" height="38"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="45s-oT-A5K" customClass="CollectionViewCell" customModule="customCalendar2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="32" width="331" height="763"/>
+                                <rect key="frame" x="0.0" y="38" width="331" height="783"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="331" height="763"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="331" height="783"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAw-xq-PTI">
-                                            <rect key="frame" x="20" y="20" width="311" height="203"/>
+                                            <rect key="frame" x="20" y="37" width="311" height="203"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vpk-mw-sx1" userLabel="MainImage View">
-                                            <rect key="frame" x="20" y="232" width="311" height="483"/>
+                                            <rect key="frame" x="20" y="246" width="311" height="483"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1I-Kl-i07" userLabel="TempImage View">
-                                            <rect key="frame" x="20" y="232" width="311" height="483"/>
+                                            <rect key="frame" x="20" y="246" width="311" height="483"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qXq-Vc-wRe">
-                                            <rect key="frame" x="20" y="723" width="311" height="40"/>
+                                            <rect key="frame" x="20" y="734" width="311" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cJx-Fn-6uK">
-                                            <rect key="frame" x="255" y="679" width="30" height="30"/>
+                                            <rect key="frame" x="255" y="693" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dz-gE-pgM">
@@ -83,7 +82,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-wU-2Nb">
-                                            <rect key="frame" x="267" y="732" width="64" height="30"/>
+                                            <rect key="frame" x="267" y="739" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="add diary"/>
                                             <connections>
@@ -91,7 +90,7 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OO9-nS-nl8">
-                                            <rect key="frame" x="24" y="679" width="180" height="30"/>
+                                            <rect key="frame" x="24" y="693" width="180" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIv-HV-hUA">
@@ -159,7 +158,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-HW-Anb">
-                                            <rect key="frame" x="29" y="241" width="30" height="30"/>
+                                            <rect key="frame" x="29" y="278" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4au-Fh-AAk">
@@ -176,7 +175,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C8o-zi-Ne8">
-                                            <rect key="frame" x="290" y="679" width="34" height="30"/>
+                                            <rect key="frame" x="290" y="693" width="34" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0db-UQ-cWV">
@@ -190,7 +189,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wbP-Bc-Foe">
-                                            <rect key="frame" x="174" y="589" width="30" height="90"/>
+                                            <rect key="frame" x="174" y="603" width="30" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tF-OK-9do">
@@ -228,6 +227,13 @@
                                                 </button>
                                             </subviews>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20180725" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m3-Sl-Cs4">
+                                            <rect key="frame" x="126" y="11" width="78" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <connections>
@@ -241,25 +247,29 @@
                                     <outlet property="saveStack" destination="C8o-zi-Ne8" id="mgm-ju-iNy"/>
                                     <outlet property="stackView" destination="OO9-nS-nl8" id="e8Q-1i-maA"/>
                                     <outlet property="tempImageView" destination="a1I-Kl-i07" id="DJH-Lj-gPd"/>
+                                    <outlet property="todayDate" destination="6m3-Sl-Cs4" id="J9T-My-7J2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MyHeader" id="S4a-Ii-HSq" customClass="CollectionReusableView" customModule="customCalendar2" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="1112" height="32"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1112" height="38"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qau-N6-JD9">
-                                    <rect key="frame" x="537" y="6" width="39" height="21"/>
-                                    <state key="normal" title="Close"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qau-N6-JD9">
+                                    <rect key="frame" x="541" y="4" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="4Jm-vK-JgA"/>
+                                        <constraint firstAttribute="width" constant="30" id="LLi-8v-1br"/>
+                                    </constraints>
+                                    <state key="normal" title="Close" image="exit"/>
                                     <connections>
                                         <action selector="closeDetail:" destination="b22-cy-i6D" eventType="touchUpInside" id="LH1-hI-0bB"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerY" secondItem="S4a-Ii-HSq" secondAttribute="centerY" id="5MD-Ed-URY"/>
-                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerX" secondItem="S4a-Ii-HSq" secondAttribute="centerX" id="Fu6-zt-ZA4"/>
-                                <constraint firstItem="qau-N6-JD9" firstAttribute="top" secondItem="S4a-Ii-HSq" secondAttribute="topMargin" constant="6" id="SxG-1U-RAN"/>
+                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerX" secondItem="S4a-Ii-HSq" secondAttribute="centerX" id="eNT-Yw-Rdm"/>
+                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerY" secondItem="S4a-Ii-HSq" secondAttribute="centerY" id="gtp-h7-ePr"/>
                             </constraints>
                             <connections>
                                 <outlet property="closeButton" destination="qau-N6-JD9" id="VYI-dE-BIg"/>
@@ -757,10 +767,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGk-8X-dYh">
-                                <rect key="frame" x="0.0" y="56" width="1112" height="778"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFV-Sm-Zyt">
                                 <rect key="frame" x="26" y="20" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -769,6 +775,10 @@
                                     <action selector="goBack:" destination="J5N-OB-FBy" eventType="touchUpInside" id="E2e-CP-odp"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGk-8X-dYh">
+                                <rect key="frame" x="0.0" y="56" width="1112" height="778"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bJU-iC-v9r"/>
@@ -780,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqW-SS-NV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.80575539568349" y="-1419.4244604316548"/>
+            <point key="canvasLocation" x="-110" y="-1455"/>
         </scene>
     </scenes>
     <resources>
@@ -791,12 +801,13 @@
         <image name="blue_circle" width="77" height="77"/>
         <image name="brush" width="170" height="170"/>
         <image name="eraser" width="170" height="170"/>
+        <image name="exit" width="75" height="75"/>
         <image name="green_circle" width="77" height="77"/>
         <image name="red_circle" width="77" height="77"/>
         <image name="reset" width="533" height="533"/>
         <image name="setting" width="170" height="170"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tda-qq-j2j"/>
+        <segue reference="Y22-MZ-bvb"/>
     </inferredMetricsTieBreakers>
 </document>
