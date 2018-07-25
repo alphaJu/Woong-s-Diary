@@ -150,7 +150,6 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         for index in carUIImages{
             savedimages.append(save_images(image: index)!)
             test += 1
-            print("savepoint")
         }
 //        print(written_date)
 //        print(bodytitle)
@@ -172,9 +171,10 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
                 note?.title = bodytitle!
                 note?.body = content!
                 note?.boardpath = boardimage!
-                note?.images = savedimages
-                print(savedimages)
-                print(note?.images)
+                note?.images.removeAll()
+                for index in savedimages{
+                    note?.images.append(index)
+                }
                 print("testpoint1")
             }
         }
