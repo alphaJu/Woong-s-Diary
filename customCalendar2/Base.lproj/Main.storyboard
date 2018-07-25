@@ -68,15 +68,20 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dz-gE-pgM">
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cJx-Fn-6uK">
                                             <rect key="frame" x="255" y="679" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Edit"/>
-                                            <connections>
-                                                <action selector="editPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="mUZ-1m-lhg"/>
-                                                <action selector="editPressed:" destination="b22-cy-i6D" eventType="touchUpInside" id="yY3-f5-6XM"/>
-                                            </connections>
-                                        </button>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dz-gE-pgM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <state key="normal" title="Edit"/>
+                                                    <connections>
+                                                        <action selector="editPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="mUZ-1m-lhg"/>
+                                                        <action selector="editPressed:" destination="b22-cy-i6D" eventType="touchUpInside" id="yY3-f5-6XM"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-wU-2Nb">
                                             <rect key="frame" x="267" y="732" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,69 +90,105 @@
                                                 <segue destination="Q7L-3k-rOi" kind="presentation" id="cIs-Mm-Sdq"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIv-HV-hUA">
-                                            <rect key="frame" x="24" y="679" width="30" height="30"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OO9-nS-nl8">
+                                            <rect key="frame" x="24" y="679" width="150" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="R" image="red_circle"/>
-                                            <connections>
-                                                <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="DXb-M9-eEz"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="978-ep-Dc5">
-                                            <rect key="frame" x="58" y="679" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="G" image="green_circle"/>
-                                            <connections>
-                                                <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="zQI-lW-G24"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z89-vW-ODl">
-                                            <rect key="frame" x="91" y="679" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="B" image="blue_circle"/>
-                                            <connections>
-                                                <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="Vna-1Y-SaV"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmp-LI-Fgq">
-                                            <rect key="frame" x="123" y="679" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="BL" image="black_circle"/>
-                                            <connections>
-                                                <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="5Ep-HO-eTY"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct8-3O-2iG">
-                                            <rect key="frame" x="157" y="679" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="X" image="eraser"/>
-                                            <connections>
-                                                <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="Fm2-dr-vKW"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4au-Fh-AAk">
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIv-HV-hUA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="90d-Sr-3zr"/>
+                                                        <constraint firstAttribute="height" constant="30" id="QL4-Nz-frD"/>
+                                                    </constraints>
+                                                    <state key="normal" title="R" image="red_circle"/>
+                                                    <connections>
+                                                        <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="DXb-M9-eEz"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="978-ep-Dc5">
+                                                    <rect key="frame" x="30" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="lGg-nj-Gwa"/>
+                                                    </constraints>
+                                                    <state key="normal" title="G" image="green_circle"/>
+                                                    <connections>
+                                                        <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="zQI-lW-G24"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z89-vW-ODl">
+                                                    <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="0dC-m3-Wbi"/>
+                                                    </constraints>
+                                                    <state key="normal" title="B" image="blue_circle"/>
+                                                    <connections>
+                                                        <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="Vna-1Y-SaV"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmp-LI-Fgq">
+                                                    <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="2cb-sX-cO9"/>
+                                                    </constraints>
+                                                    <state key="normal" title="BL" image="black_circle"/>
+                                                    <connections>
+                                                        <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="5Ep-HO-eTY"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct8-3O-2iG">
+                                                    <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="iLQ-eY-N29"/>
+                                                    </constraints>
+                                                    <state key="normal" title="X" image="eraser"/>
+                                                    <connections>
+                                                        <action selector="pencilPressed:" destination="45s-oT-A5K" eventType="touchUpInside" id="Fm2-dr-vKW"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-HW-Anb">
                                             <rect key="frame" x="29" y="241" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Reset" image="reset"/>
-                                            <connections>
-                                                <action selector="reset:" destination="45s-oT-A5K" eventType="touchUpInside" id="xHS-hy-37p"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0db-UQ-cWV">
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4au-Fh-AAk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Nr3-kh-jHX"/>
+                                                        <constraint firstAttribute="width" constant="30" id="d2u-Mv-oBw"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Reset" image="reset"/>
+                                                    <connections>
+                                                        <action selector="reset:" destination="45s-oT-A5K" eventType="touchUpInside" id="xHS-hy-37p"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C8o-zi-Ne8">
                                             <rect key="frame" x="290" y="679" width="34" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Save"/>
-                                            <connections>
-                                                <action selector="saveDetail:" destination="45s-oT-A5K" eventType="touchUpInside" id="y8i-1I-NyU"/>
-                                            </connections>
-                                        </button>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0db-UQ-cWV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                                    <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="saveDetail:" destination="45s-oT-A5K" eventType="touchUpInside" id="y8i-1I-NyU"/>
+                                                        <action selector="savePressed:" destination="b22-cy-i6D" eventType="touchUpInside" id="qqe-LM-tuI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                 </view>
                                 <connections>
                                     <outlet property="Diary" destination="qXq-Vc-wRe" id="RcB-Ld-yCQ"/>
                                     <outlet property="Edit" destination="4Dz-gE-pgM" id="hOo-v5-gi9"/>
+                                    <outlet property="editStack" destination="cJx-Fn-6uK" id="GIy-FI-bBY"/>
                                     <outlet property="imageView" destination="XAw-xq-PTI" id="MQ5-B4-V6C"/>
                                     <outlet property="mainImageView" destination="Vpk-mw-sx1" id="uog-cw-3eR"/>
+                                    <outlet property="resetStack" destination="d6g-HW-Anb" id="Fog-Pp-am1"/>
+                                    <outlet property="saveStack" destination="C8o-zi-Ne8" id="mgm-ju-iNy"/>
+                                    <outlet property="stackView" destination="OO9-nS-nl8" id="e8Q-1i-maA"/>
                                     <outlet property="tempImageView" destination="a1I-Kl-i07" id="DJH-Lj-gPd"/>
                                 </connections>
                             </collectionViewCell>

@@ -96,6 +96,13 @@ class CollectionViewController: UICollectionViewController {
         
         if(Test < 7){
             
+            for i in 0...4 {
+                cell.stackView.arrangedSubviews[i].isHidden = true
+            }
+            
+            cell.saveStack.arrangedSubviews[0].isHidden = true
+            cell.resetStack.arrangedSubviews[0].isHidden = true
+            
             let image = UIImage(named: "icon1")
             let image2 = UIImage(named: "background")
             cell.imageView.image = image
@@ -163,14 +170,11 @@ class CollectionViewController: UICollectionViewController {
         if(self.collectionView?.isScrollEnabled == true){
             self.collectionView?.isScrollEnabled = false
         }
-        else{
+    }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        if(self.collectionView?.isScrollEnabled == false) {
             self.collectionView?.isScrollEnabled = true
-        }
-        
-        let index: [Int] = [0,1,2,3,4]
-        
-        for item in index{
-            
         }
     }
     

@@ -15,6 +15,10 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var Diary: UITextView!
     @IBOutlet weak var Edit: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var editStack: UIStackView!
+    @IBOutlet weak var saveStack: UIStackView!
+    @IBOutlet weak var resetStack: UIStackView!
     
     var documentsUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -116,6 +120,12 @@ class CollectionViewCell: UICollectionViewCell {
         else{
             tempImageView.isUserInteractionEnabled = true
         }
+        for i in 0...4 {
+            stackView.arrangedSubviews[i].isHidden = false
+        }
+        editStack.arrangedSubviews[0].isHidden = true
+        saveStack.arrangedSubviews[0].isHidden = false
+        resetStack.arrangedSubviews[0].isHidden = false
     }
     
     @IBAction func reset(_ sender: UIButton) {
@@ -140,6 +150,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func saveDetail(_ sender: UIButton){
+        
         if let img = mainImageView.image {
             //            let img2 = resizeImage(image: img, targetSize: CGSize(width: 158.5,height: 104.0))
             let realm = try! Realm()
@@ -163,9 +174,14 @@ class CollectionViewCell: UICollectionViewCell {
                     print("testpoint1")
                 }
             }
-            
-            
         }
+        
+        for i in 0...4 {
+            stackView.arrangedSubviews[i].isHidden = true
+        }
+        editStack.arrangedSubviews[0].isHidden = false
+        saveStack.arrangedSubviews[0].isHidden = true
+        resetStack.arrangedSubviews[0].isHidden = true
     }
     
     private func save(image: UIImage) -> String? {
