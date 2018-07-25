@@ -73,6 +73,7 @@ class AddDiaryViewController: UIViewController, UICollectionViewDataSource, UICo
         
         print("his \(date)")
         
+        //한국시간으로 바꿔야함.
         let date_now_string = NSDate().description
         let index = date_now_string.index(date_now_string.startIndex, offsetBy: 16)
         date_written.text = String(date_now_string[..<index])
@@ -456,10 +457,12 @@ extension AddDiaryViewController : UIImagePickerControllerDelegate,UINavigationC
         
         
         carUIImages.append(info[UIImagePickerControllerOriginalImage] as! UIImage)
-        let insertedIndexPath = IndexPath(item: 1, section: 0)
-        photoCollectionView.insertItems(at: [insertedIndexPath])
-    
+        //let insertedIndexPath = IndexPath(item: 1, section: 0)
+        photoCollectionView.insertItems(at: [NSIndexPath(row: self.carUIImages.count - 1, section: 0) as IndexPath])
+
         self.dismiss(animated: true)
+        
+        print("kkkkkkkk")
     }
     
 }
