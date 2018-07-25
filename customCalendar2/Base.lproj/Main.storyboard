@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,13 +37,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P8b-ls-s0z">
                             <size key="itemSize" width="331" height="763"/>
-                            <size key="headerReferenceSize" width="50" height="40"/>
+                            <size key="headerReferenceSize" width="50" height="32"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="45s-oT-A5K" customClass="CollectionViewCell" customModule="customCalendar2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="40" width="331" height="763"/>
+                                <rect key="frame" x="0.0" y="32" width="331" height="763"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="763"/>
@@ -193,21 +194,22 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MyHeader" id="S4a-Ii-HSq" customClass="CollectionReusableView" customModule="customCalendar2" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="1112" height="40"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MyHeader" id="S4a-Ii-HSq" customClass="CollectionReusableView" customModule="customCalendar2" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="1112" height="32"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qau-N6-JD9">
-                                    <rect key="frame" x="533" y="10" width="46" height="30"/>
-                                    <state key="normal" title="Button"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qau-N6-JD9">
+                                    <rect key="frame" x="537" y="6" width="39" height="21"/>
+                                    <state key="normal" title="Close"/>
                                     <connections>
                                         <action selector="closeDetail:" destination="b22-cy-i6D" eventType="touchUpInside" id="LH1-hI-0bB"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerX" secondItem="S4a-Ii-HSq" secondAttribute="centerX" id="g0y-ri-nEA"/>
-                                <constraint firstAttribute="bottom" secondItem="qau-N6-JD9" secondAttribute="bottom" id="ipG-Wc-2EW"/>
+                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerY" secondItem="S4a-Ii-HSq" secondAttribute="centerY" id="5MD-Ed-URY"/>
+                                <constraint firstItem="qau-N6-JD9" firstAttribute="centerX" secondItem="S4a-Ii-HSq" secondAttribute="centerX" id="Fu6-zt-ZA4"/>
+                                <constraint firstItem="qau-N6-JD9" firstAttribute="top" secondItem="S4a-Ii-HSq" secondAttribute="topMargin" constant="6" id="SxG-1U-RAN"/>
                             </constraints>
                             <connections>
                                 <outlet property="closeButton" destination="qau-N6-JD9" id="VYI-dE-BIg"/>
@@ -221,7 +223,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEk-We-3Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41.007194244604321" y="-680.57553956834533"/>
+            <point key="canvasLocation" x="-77.158273381294961" y="-686.33093525179856"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -371,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1S9-V7-0eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842.80575539568349" y="-552.51798561151088"/>
+            <point key="canvasLocation" x="916" y="-536"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="De7-qq-zTt">
@@ -646,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtT-ZK-kas" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19.964028776978417" y="-1450.359712230216"/>
+            <point key="canvasLocation" x="581" y="-1269"/>
         </scene>
     </scenes>
     <resources>
